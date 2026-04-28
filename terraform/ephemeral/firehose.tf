@@ -15,7 +15,7 @@ resource "aws_kinesis_firehose_delivery_stream" "data_lake_stream" {
     buffering_interval = 60
 
     prefix = "raw-data/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/"
-    error_output_prefix = "errors/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/"
+    error_output_prefix = "errors/!{firehose:error-output-type}/year=!{timestamp:yyyy}/month=!{timestamp:MM}/day=!{timestamp:dd}/"
   
     cloudwatch_logging_options {
       enabled = true
