@@ -1,8 +1,7 @@
-.vscode
+/.vscode
 
 .env
 
 pycache/
 
-
-
+terraform/ephemeral/terraform.tfvars
