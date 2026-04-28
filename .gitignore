@@ -5,3 +5,6 @@
 pycache/
 
 terraform/ephemeral/terraform.tfvars
+
+**/.terraform/
+

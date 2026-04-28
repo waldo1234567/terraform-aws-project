@@ -37,15 +37,15 @@ resource "aws_lambda_function" "guard_processor" {
 }
 
 
-resource "aws_cloudwatch_log_group" "guard_lambda_logs" {
-  name              = "/aws/lambda/${var.project_name}-guard-processor"
-  retention_in_days = 3
-}
-
 resource "aws_cloudwatch_event_rule" "fifteen_minute_cron" {
   name                = "${var.project_name}-15min-check"
   description         = "Triggers the Guard Lambda every 15 minutes to check Kinesis uptime"
   schedule_expression = "rate(15 minutes)"
+}
+
+resource "aws_cloudwatch_log_group" "guard_lambda_logs" {
+  name              = "/aws/lambda/${var.project_name}-guard-processor"
+  retention_in_days = 3
 }
 
 resource "aws_cloudwatch_event_target" "trigger_guard_lambda" {
