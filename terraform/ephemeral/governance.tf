@@ -10,7 +10,7 @@ resource "aws_sns_topic_subscription" "email_alert" {
 
 data "archive_file" "guard_lambda_zip" {
   type        = "zip"
-  source_dir  = abspath("${path.module}/../../src/lambdas/guard_lambda")
+  source_dir  = abspath("${path.module}/src/lambdas/guard_lambda")
   output_path = "${path.module}/guard_lambda.zip"
 }
 
