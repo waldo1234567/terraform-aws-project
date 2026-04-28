@@ -10,8 +10,8 @@ resource "aws_sns_topic_subscription" "email_alert" {
 
 data "archive_file" "guard_lambda_zip" {
   type        = "zip"
-  source_dir  = "${path.module}/../../src/lambdas/guard_lambda"
-  output_path = "${path.module}/.terraform/archive/guard_lambda.zip"
+  source_dir  = abspath("${path.module}/../../src/lambdas/guard_lambda")
+  output_path = "${path.module}/guard_lambda.zip"
 }
 
 resource "aws_lambda_function" "guard_processor" {

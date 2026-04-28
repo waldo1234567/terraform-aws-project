@@ -134,7 +134,7 @@ data "aws_iam_policy_document" "guard_lambda_policy_doc" {
 
   statement {
     actions   = ["ssm:GetParameter"]
-    resources = [aws_ssm_parameter.producer_start_time.name]
+    resources = [data.aws_ssm_parameter.producer_started_at.arn]
   }
 
   statement {

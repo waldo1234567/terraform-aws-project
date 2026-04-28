@@ -2,8 +2,8 @@
 
 data "archive_file" "logic_lambda_zip" {
   type        = "zip"
-  source_dir  = "${path.module}/../../src/lambdas/logic_lambda"
-  output_path = "${path.module}/.terraform/archive/logic_lambda.zip"
+  source_dir  = abspath("${path.module}/../../src/lambdas/logic_lambda")
+  output_path = "${path.module}/logic_lambda.zip"
 }
 
 # 2. THE AI LOGIC LAMBDA
